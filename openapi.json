@@ -148,6 +148,7 @@
       }
     },
     "/taxonomies/{id}": {
+      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -178,6 +179,7 @@
       }
     },
     "/taxonomies": {
+      "x-endpoint-required": false,
       "get": {
         "description": "Paginated listing of taxonomies.",
         "summary": "Paginated listing of taxonomies.",
@@ -223,6 +225,7 @@
       }
     },
     "/taxonomy_terms/{id}": {
+      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -253,6 +256,7 @@
       }
     },
     "/taxonomy_terms": {
+      "x-endpoint-required": false,
       "get": {
         "description": "Full information on a taxonomy term",
         "summary": "Paginated listing of taxonomy terms",
@@ -319,6 +323,7 @@
       }
     },
     "/organizations/{id}": {
+      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -354,6 +359,7 @@
       }
     },
     "/organizations": {
+      "x-endpoint-required": false,
       "get": {
         "description": "Paginated list of basic Organization information.",
         "summary": "Paginated list of basic Organization information",
@@ -406,6 +412,7 @@
       }
     },
     "/service_at_locations/{id}": {
+      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -436,6 +443,7 @@
       }
     },
     "/service_at_locations": {
+      "x-endpoint-required": false,
       "get": {
         "description": "Retrieve paginated listings of service_at_location that only have one-to-one fields in them.",
         "summary": "Retrieve paginated listings of service_at_location that only have one-to-one fields in them.",
