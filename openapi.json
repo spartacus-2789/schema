@@ -1,5 +1,5 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0",
   "info": {
     "title": "REQUIRED -- TITLE OF YOUR API HERE",
     "version": "REQUIRED -- The version of this document. This is distinct from the OpenAPI Schema version and the version of your API.",
@@ -16,6 +16,12 @@
     }
   },
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "tags": [
+    {
+      "name": "Optional",
+      "description": "Optional endpoints that may not be implemented by all services"
+    }
+  ],
   "paths": {
     "/": {
       "get": {
@@ -32,16 +38,19 @@
                   "properties": {
                     "version": {
                       "type": "string",
+                     "required": true,
                       "description": "HSDS version of this API."
                     },
                     "profile": {
                       "type": "string",
                       "format": "uri",
+                      "required": true,
                       "description": "URL of the information on the HSDS profile of this API."
                     },
                     "openapi_url": {
                       "type": "string",
                       "format": "uri",
+                      "required": true,
                       "description": "URL of the openapi JSON file which defines this API."
                     }
                   }
@@ -148,7 +157,6 @@
       }
     },
     "/taxonomies/{id}": {
-      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -161,7 +169,8 @@
         }
       ],
       "get": {
-        "description": "Full information on taxonomy.",
+        "tags": ["Optional"],
+        "description": "Full information on taxonomy. This endpoint is optional and may not be implemented by all services.",
         "summary": "Retrieves full information on a taxonomy by {id}.",
         "operationId": "getTaxonomyById",
         "responses": {
@@ -179,9 +188,9 @@
       }
     },
     "/taxonomies": {
-      "x-endpoint-required": false,
       "get": {
-        "description": "Paginated listing of taxonomies.",
+        "tags": ["Optional"],
+        "description": "Paginated listing of taxonomies. This endpoint is optional and may not be implemented by all services.",
         "summary": "Paginated listing of taxonomies.",
         "operationId": "getPaginatedListOfTaxonomies",
         "parameters": [
@@ -225,7 +234,6 @@
       }
     },
     "/taxonomy_terms/{id}": {
-      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -238,7 +246,8 @@
         }
       ],
       "get": {
-        "description": "Full information on a taxonomy term.",
+        "tags": ["Optional"],
+        "description": "Full information on a taxonomy term. This endpoint is optional and may not be implemented by all services.",
         "summary": "Full information on a taxonomy term.",
         "operationId": "getPaginatedListOfTaxonomyTerms",
         "responses": {
@@ -256,9 +265,9 @@
       }
     },
     "/taxonomy_terms": {
-      "x-endpoint-required": false,
       "get": {
-        "description": "Full information on a taxonomy term",
+        "tags": ["Optional"],
+        "description": "Full information on a taxonomy term. This endpoint is optional and may not be implemented by all services.",
         "summary": "Paginated listing of taxonomy terms",
         "operationId": "getTaxonomyTermById",
         "parameters": [
@@ -323,7 +332,6 @@
       }
     },
     "/organizations/{id}": {
-      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -336,7 +344,8 @@
         }
       ],
       "get": {
-        "description": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
+        "tags": ["Optional"],
+        "description": "Fully nested organization with service array that contains simple information which could only contain the service.id. This endpoint is optional and may not be implemented by all services.",
         "summary": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
         "operationId": "getOrganizationById",
         "parameters": [
@@ -359,9 +368,9 @@
       }
     },
     "/organizations": {
-      "x-endpoint-required": false,
       "get": {
-        "description": "Paginated list of basic Organization information.",
+        "tags": ["Optional"],
+        "description": "Paginated list of basic Organization information. This endpoint is optional and may not be implemented by all services.",
         "summary": "Paginated list of basic Organization information",
         "operationId": "getPaginatedListOfOrganizations",
         "parameters": [
@@ -412,7 +421,6 @@
       }
     },
     "/service_at_locations/{id}": {
-      "x-endpoint-required": false,
       "parameters": [
         {
           "in": "path",
@@ -425,7 +433,8 @@
         }
       ],
       "get": {
-        "description": "Retrieve fully nested service_at_location with all related data with specified id.",
+        "tags": ["Optional"],
+        "description": "Retrieve fully nested service_at_location with all related data with specified id. This endpoint is optional and may not be implemented by all services.",
         "summary": "Retrieve fully nested service_at_location with all related data with specified id.",
         "operationId": "getServiceAtLocationWithNestedDataById",
         "responses": {
@@ -443,9 +452,9 @@
       }
     },
     "/service_at_locations": {
-      "x-endpoint-required": false,
       "get": {
-        "description": "Retrieve paginated listings of service_at_location that only have one-to-one fields in them.",
+        "tags": ["Optional"],
+        "description": "Retrieve paginated listings of service_at_location that only have one-to-one fields in them. This endpoint is optional and may not be implemented by all services.",
         "summary": "Retrieve paginated listings of service_at_location that only have one-to-one fields in them.",
         "operationId": "getPaginatedListOfServiceAtLocation",
         "parameters": [
